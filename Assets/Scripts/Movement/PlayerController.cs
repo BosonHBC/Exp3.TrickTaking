@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         float hori = Input.GetAxis(horiAxis);
 
-        transform.position += new Vector3(hori * fMovementSpeed * Time.deltaTime, 0, 0);
+        rb.AddForce(new Vector3(hori * fMovementSpeed, 0, 0), ForceMode.Force);
     }
 
     private bool IsGrounded()

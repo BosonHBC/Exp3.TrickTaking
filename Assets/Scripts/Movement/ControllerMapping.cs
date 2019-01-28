@@ -75,6 +75,11 @@ public class ControllerMapping : MonoBehaviour
         go2.name = "Canvas_" + _ID;
         Canvas _canvas = go2.GetComponent<Canvas>();
         _canvas.worldCamera = cams[_ID - 1];
-        go.GetComponent<PlacementController>().SetUpCanvas(_canvas.transform);
+        go.GetComponent<PlacementController>().SetUpCanvas(_canvas.transform, _ID);
+    }
+
+    public void StartGame()
+    {
+
     }
 }
