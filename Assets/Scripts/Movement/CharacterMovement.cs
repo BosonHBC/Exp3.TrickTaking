@@ -30,8 +30,7 @@ public class CharacterMovement : MonoBehaviour
     // Parameter
     [SerializeField]
     private bool bIsGrounded;
-    [SerializeField]
-    private int iControlID;
+    public int iControlID;
 
     private string horiAxis = "Horizontal";
     private string vertAxis = "Vertical";

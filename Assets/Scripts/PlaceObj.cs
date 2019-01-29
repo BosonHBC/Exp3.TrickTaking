@@ -13,6 +13,8 @@ public class PlaceObj : MonoBehaviour
 
     private int colliderEnter;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {

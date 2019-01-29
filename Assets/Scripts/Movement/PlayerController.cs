@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     private bool bIsGrounded;
     [SerializeField]
     private float fRaycastDistance;
-    [SerializeField]
-    private int iControlID;
+    //[SerializeField]
+    public int iControlID;
 
     private string horiAxis = "Horizontal";
     private string vertAxis = "Vertical";
@@ -37,9 +37,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bIsGrounded = IsGrounded();
-        PerformJumping();
-        PerformMovement();
+        if (!ControllerMapping.instance.IsGameOver)
+        {
+            bIsGrounded = IsGrounded();
+            PerformJumping();
+            PerformMovement();
+
+        }
     }
 
     public void SetControllerID(int _ID)
