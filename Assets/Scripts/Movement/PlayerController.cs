@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         float hori = Input.GetAxis(horiAxis);
 
-        rb.AddForce(new Vector3(hori * fMovementSpeed, 0, 0), ForceMode.Force);
+        rb.AddForce(new Vector3(hori * fMovementSpeed * (bIsGrounded?1:0.3f), 0, 0), ForceMode.Force);
     }
 
     private bool IsGrounded()

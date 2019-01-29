@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -174,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 4626653838284507791, guid: 61d16d5e5d6a1aa4da962f774afff340,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1950
       objectReference: {fileID: 0}
     - target: {fileID: 4626653838284507791, guid: 61d16d5e5d6a1aa4da962f774afff340,
         type: 3}
@@ -265,6 +265,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415365426275924237, guid: 61d16d5e5d6a1aa4da962f774afff340,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415365426275924237, guid: 61d16d5e5d6a1aa4da962f774afff340,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415365426275924237, guid: 61d16d5e5d6a1aa4da962f774afff340,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415365426275924237, guid: 61d16d5e5d6a1aa4da962f774afff340,
+        type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415365426275924237, guid: 61d16d5e5d6a1aa4da962f774afff340,
+        type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61d16d5e5d6a1aa4da962f774afff340, type: 3}

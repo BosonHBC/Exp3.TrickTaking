@@ -24,10 +24,16 @@ public class ControllerMapping : MonoBehaviour
 
     private int iCurrentPlaceId;
 
+    public float playTime = 60f;
+    private float collapseTime;
+
     public bool IsGameOver;
+    [SerializeField]
+    Transform indicator;
     // Start is called before the first frame update
     void Start()
     {
+        collapseTime = playTime;
         JoystickAvaliable();
 
         // Invoke("StartGame", 1f);
@@ -37,14 +43,30 @@ public class ControllerMapping : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsGameOver)
+        {
+            collapseTime -= Time.deltaTime;
+            indicator.transform.position = Vector3.Lerp(new Vector3(-18, 7.39f, 1.34f), new Vector3(-2, 7.39f, 1.34f), 1 - collapseTime / playTime);
+            if (collapseTime <= 0)
+            {
 
+
+                if (lists[0].transform.position.y - lists[1].transform.position.y > 0.1f)
+                    EndGame(1);
+                else if (lists[1].transform.position.y - lists[0].transform.position.y > 0.1f)
+                    EndGame(2);
+                else
+                    EndGame(3);
+
+            }
+        }
     }
 
     public void JoystickAvaliable()
     {
         //Get Joystick Names
         string[] temp = Input.GetJoystickNames();
-
+        int count = 0;
         //Check whether array contains anything
         if (temp.Length > 0)
         {
@@ -56,8 +78,12 @@ public class ControllerMapping : MonoBehaviour
                 {
                     //Not empty, controller temp[i] is connected
                     Debug.Log("Controller " + i + " is connected using: " + temp[i]);
-                    if (i < MaxSupportPlayer)
-                        CreatePlayer(i + 1);
+                    if (count < MaxSupportPlayer)
+                    {
+                        Debug.Log("PlayerID:" + (count + 1));
+                        CreatePlayer(count + 1);
+                        count++;
+                    }
                     else
                         Debug.Log("Over support players, not going to spawn");
                 }
@@ -114,7 +140,19 @@ public class ControllerMapping : MonoBehaviour
 
     public void EndGame(int _id)
     {
-        PlaceLists[_id-1].IWin();
+
+        if(_id == 3)
+        {
+            UnityEngine.UI.Text[] texts = FindObjectsOfType<UnityEngine.UI.Text>();
+            for (int i = 0; i < texts.Length; i++)
+            {
+                texts[i].text = "DRAW";
+            }
+        }
+        else
+        {
+            PlaceLists[_id - 1].IWin();
+        }
         IsGameOver = true;
     }
 }
